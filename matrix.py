@@ -122,6 +122,10 @@ class Matrix:
     @property
     def inverse(self):
 
+        if self.det == 0:
+
+            raise Exception("A determinante dessa matriz é 0. Portanto, não é possível achar sua matriz inversa!")
+
         inverse_matrix = [[0 for _ in range(len(self.values[0]))] for _ in range(len(self.values))]
 
         for i in range(len(self.adjoint)):
@@ -136,7 +140,7 @@ class Matrix:
     @staticmethod
     def getTransposeMatrix(matrix: List[List[float]]) -> List[List[float]]:
 
-        transpose_matrix = [[0 for _ in range(len(matrix))] for _ in range(len(matrix[0]))]
+        transpose_matrix = [[0 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
 
         for i in range(len(matrix)):
 
